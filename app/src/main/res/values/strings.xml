@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Travel_Application</string>
+    <string name="introTitle">Explore the <font color='#3f95ec'>\n world</font> with us</string>
+    <string name="subIntro">It is very important for the customer to be aware of the customers needs,\n  but I will give him the same time.</string>
+</resources>
