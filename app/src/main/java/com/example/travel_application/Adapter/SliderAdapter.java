@@ -69,7 +69,7 @@
 //
 //    }
 //}
-package com.example.travel_application.Domain;
+package com.example.travel_application.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -82,6 +82,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
+import com.example.travel_application.Domain.SliderItems;
 import com.example.travel_application.R;
 
 import java.util.ArrayList;
@@ -120,6 +121,11 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         public SliderViewholder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageSlide);
+        }
+
+        @Override
+        public String toString() {
+            return super.toString();
         }
 
         void setImage(SliderItems sliderItem) {
