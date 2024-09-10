@@ -12,6 +12,7 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 
 import com.example.travel_application.Adapter.CategoryAdaptor;
+import com.example.travel_application.Adapter.PopularAdapter;
 import com.example.travel_application.Adapter.RecommendedAdapter;
 import com.example.travel_application.Domain.Category;
 import com.example.travel_application.Domain.ItemDomain;
@@ -39,12 +40,13 @@ public class MainActivity extends BaseActivity {
         initBanner();
         initCategory();
         initRecommendation();
+        initPopular();
 
     }
 
-    private void initRecommendation() {
+    private void initPopular() {
         DatabaseReference myRef = database.getReference("Popular");
-        binding.progressBarRecommended.setVisibility(View.VISIBLE);
+        binding.progressBarPopular.setVisibility(View.VISIBLE);
         ArrayList<ItemDomain> list = new ArrayList<>();
 
         myRef.addListenerForSingleValueEvent(
@@ -55,6 +57,39 @@ public class MainActivity extends BaseActivity {
                             for (DataSnapshot issue : snapshot.getChildren()) {
                                 list.add(issue.getValue(ItemDomain.class));
                                 Log.d("recommendedtejasv", "onDataChange: " + list);
+                            }
+                            if (!list.isEmpty()) {
+                                binding.recyclerViewPopular.setLayoutManager(
+                                        new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false)
+                                );
+                                PopularAdapter adapter = new PopularAdapter(list);
+                                binding.recyclerViewPopular.setAdapter(adapter);
+                            }
+                            binding.progressBarPopular.setVisibility(View.GONE);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                }
+        );
+    }
+
+    private void initRecommendation() {
+        DatabaseReference myRef = database.getReference("Item");
+        binding.progressBarRecommended.setVisibility(View.VISIBLE);
+        ArrayList<ItemDomain> list = new ArrayList<>();
+
+        myRef.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            for (DataSnapshot issue : snapshot.getChildren()) {
+                                list.add(issue.getValue(ItemDomain.class));
+                                Log.d("popularrecommendastion", "onDataChange: " + list);
                             }
                             if (!list.isEmpty()) {
                                 binding.recyclerViewRecommended.setLayoutManager(

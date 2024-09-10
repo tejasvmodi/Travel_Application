@@ -9,7 +9,7 @@
     android:layout_height="215dp">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/pic"
+        android:id="@+id/picpopular1s"
         android:layout_width="240dp"
         android:layout_height="130dp"
         android:layout_margin="8dp"
@@ -23,18 +23,19 @@
 
     <TextView
         android:id="@+id/titleText"
-        android:paddingStart="8dp"
-        android:layout_width="193dp"
-        android:layout_height="21dp"
+        android:layout_width="191dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
+        android:paddingStart="8dp"
         android:text="title"
         android:textColor="@color/darkBlue"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pic" />
+        app:layout_constraintTop_toBottomOf="@id/picpopular1s" />
 
     <TextView
         android:id="@+id/ScoreTxt"
@@ -43,7 +44,7 @@
         android:text="S"
         android:textColor="@color/darkBlue"
         app:layout_constraintBottom_toBottomOf="@id/titleText"
-        app:layout_constraintEnd_toEndOf="@id/pic"
+        app:layout_constraintEnd_toEndOf="@id/picpopular1s"
 
         app:layout_constraintTop_toTopOf="@id/titleText"
         app:layout_constraintVertical_bias="0.0" />
@@ -55,6 +56,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/ScoreTxt"
         app:layout_constraintEnd_toStartOf="@+id/ScoreTxt"
+        app:layout_constraintStart_toEndOf="@+id/titleText"
         app:layout_constraintTop_toTopOf="@id/ScoreTxt"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/star" />

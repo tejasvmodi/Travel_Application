@@ -1,9 +1,7 @@
 package com.example.travel_application.Adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -11,38 +9,42 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.travel_application.Domain.ItemDomain;
+import com.example.travel_application.databinding.ViewholderPopularBinding;
 import com.example.travel_application.databinding.ViewholderRecommendedBinding;
 
 import java.util.ArrayList;
-public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.ViewHolder> {
+
+public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
     ArrayList<ItemDomain> items;
     Context context;
 
-    public RecommendedAdapter(ArrayList<ItemDomain> list) {
+    public PopularAdapter(ArrayList<ItemDomain> list) {
         this.items = list;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PopularAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        ViewholderRecommendedBinding binding = ViewholderRecommendedBinding.inflate(inflater, parent, false);
+        ViewholderPopularBinding binding = ViewholderPopularBinding.inflate(inflater, parent, false);
         context = parent.getContext();
-        return new ViewHolder(binding);
+        return new PopularAdapter.ViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PopularAdapter.ViewHolder holder, int position) {
         ItemDomain item = items.get(position);
-        holder.binding.titleText.setText(item.getTitle());
-        holder.binding.Pricetxt.setText("$"+item.getPrice());
-        holder.binding.addressTxt.setText(item.getAddress());
-        holder.binding.ScoreTxt.setText(" " + item.getScore());
+        holder.binding.titleTxt.setText(item.getTitle());
+        holder.binding.PriceTxt.setText("$"+item.getPrice());
+        holder.binding.AddressTxt.setText(item.getAddress());
+        holder.binding.ScoreText.setText(" " + item.getScore());
 
         Glide.with(context)
                 .load(item.getPic())
-                .into(holder.binding.picpopular1s);
+                .into(holder.binding.picpopular2);
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -50,9 +52,9 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ViewholderRecommendedBinding binding;
+        ViewholderPopularBinding binding;
 
-        public ViewHolder(@NonNull ViewholderRecommendedBinding binding) {
+        public ViewHolder(@NonNull ViewholderPopularBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

@@ -50,9 +50,9 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.Viewho
             Glide.with(holder.itemView.getContext())
                     .load(item.getImagePath())
                     .error(R.drawable.ic_launcher_foreground) // Fallback image on error
-                    .into(holder.binding.pic);
+                    .into(holder.binding.picpopular);
         } else {
-            holder.binding.pic.setImageResource(R.drawable.ic_launcher_background); // Fallback if image URL is missing
+            holder.binding.picpopular.setImageResource(R.drawable.ic_launcher_background); // Fallback if image URL is missing
         }
 
         // Handle the category selection logic
@@ -65,11 +65,11 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.Viewho
 
         // UI updates based on selection
         if (selectedPosition == position) {
-            holder.binding.pic.setBackgroundResource(0);
+            holder.binding.picpopular.setBackgroundResource(0);
 //            holder.binding.MainLayout.setBackgroundResource(R.drawable.blue_bg); // Selected background
             holder.binding.title.setVisibility(View.VISIBLE); // Show title for selected
         } else {
-            holder.binding.pic.setBackgroundResource(R.drawable.grey_bg); // Unselected background
+            holder.binding.picpopular.setBackgroundResource(R.drawable.grey_bg); // Unselected background
             holder.binding.MainLayout.setBackgroundResource(0); // Default background
             holder.binding.title.setVisibility(View.GONE); // Hide title for unselected
         }

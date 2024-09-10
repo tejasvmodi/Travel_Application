@@ -13,7 +13,7 @@
     >
 
     <ImageView
-        android:id="@+id/pic"
+        android:id="@+id/picpopular"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:visibility="visible"

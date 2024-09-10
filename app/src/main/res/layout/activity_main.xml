@@ -14,9 +14,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="810dp"
+        app:layout_constraintBottom_toTopOf="@+id/chipNavigationBar"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-11dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +56,6 @@
                     app:layout_constraintEnd_toEndOf="@+id/textView1"
                     app:layout_constraintStart_toStartOf="@+id/textView1"
                     app:layout_constraintTop_toBottomOf="@+id/textView1" />
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -105,8 +105,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/ViewPagerSlider"
@@ -161,8 +161,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:orientation="horizontal">
 
@@ -173,19 +173,18 @@
                     android:layout_weight="1"
                     android:text="Recommended"
                     android:textColor="@color/darkBlue"
-                    android:textStyle="bold"
                     android:textSize="16sp"
-                    />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:layout_gravity="end"
                     android:layout_weight="1"
+                    android:text="See All"
                     android:textColor="@color/blue"
-                    android:text="See All" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -194,11 +193,11 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewRecommended"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:clipToPadding="false"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -217,10 +216,10 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginTop="16dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -228,18 +227,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text= "Popular Destination"
-                    android:textSize="16sp"
+                    android:text="Popular Destination"
                     android:textColor="@color/darkBlue"
-                    android:textStyle="bold"
-                    />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/blue"
-                    android:text="see all" />
+                    android:text="see all"
+                    android:textColor="@color/blue" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -249,10 +247,10 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewPopular"
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:clipToPadding="false"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:layout_height="match_parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -272,23 +270,24 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/chipNavigationBar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        app:cnb_menuResource="@menu/menu_bottom"
         android:background="@color/white"
         android:elevation="3dp"
-        android:padding = "4dp"
-        app:cnb_iconSize="20sp"
-        app:cnb_iconColor = "@color/darkBlue"
-        app:cnb_radius="50dp"
         android:orientation="horizontal"
+        android:padding="4dp"
+        app:cnb_iconColor="@color/darkBlue"
+        app:cnb_iconSize="20sp"
+        app:cnb_menuResource="@menu/menu_bottom"
+        app:cnb_radius="50dp"
         app:cnb_unselectedColor="@color/darkBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
